@@ -41,6 +41,13 @@ let userData = {
     "userInitials" : userInitials,
     "userScore": userScore
 }
+//Connecting startButton to timer
+let startButton = document.getElementById("startButton") ;
+
+startButton.addEventListener("click", function() {
+    startTimer() ;
+})
+
 
 //Timer stuff
 function startTimer() {
@@ -56,6 +63,9 @@ function startTimer() {
         }
 
     }, 1000) ;
-}
 
-startTimer() ;
+    //Need to disable start button while quiz is running
+    // while (secondsLeft > 0) {
+    //     startButton.disabled = true ;
+    // }
+}

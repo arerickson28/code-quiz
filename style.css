@@ -11,10 +11,10 @@ div {
     align-items: center ;
 }
 
-#startQuiz {
+.startQuiz {
     display: flex ;
     justify-content: center ;
-    height: 50px ;
+    height: 75px ;
     width: 200px ;
     align-items: center ;
 }
