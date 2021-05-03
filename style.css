@@ -6,19 +6,51 @@ div {
 #highscores {
     height: 50px ;
     width: 200px ;
+    display: flex ;
+    justify-content: center ;
+    align-items: center ;
+}
+
+#startQuiz {
+    display: flex ;
+    justify-content: center ;
+    height: 50px ;
+    width: 200px ;
+    align-items: center ;
+}
+
+
+#timer {
+    height: 50px ;
+    width: 200px ;
+    display: flex ;
+    justify-content: center ;
+    align-items: center ;
+}
+
+nav {
+    display: flex ;
+    justify-content: space-between ;
+}
+
+section {
+    display: flex ;
+    justify-content: center ;
 }
 
 #questionBox {
     height: 500px ;
     width: 800px ;
-}
-
-#timer {
-    height: 50px ;
-    width: 100px ;
-}
-
-body {
     display: flex ;
-    justify-content: space-between ;
+    align-items: center ;
+    margin-top: 50px ;
+    flex-direction: column ;
+}
+
+#question {
+    height: 100px ;
+    width: 650px ;
+    display: flex ;
+    justify-content: center ;
+    align-items: center ;
 }

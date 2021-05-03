@@ -26,3 +26,22 @@ let quizQuestionObject = {
             }
 }
 
+let userInitals ;
+
+let userScore ;
+
+let isQuizFinished = false ;
+
+if (isQuizFinished === true) {
+    userInitials = prompt("Please Enter Initals") ;
+}
+
+
+let userData = {
+    "userInitials" : userInitials,
+    "userScore": userScore
+}
+
+
+
+console.log("hey friend") ;
