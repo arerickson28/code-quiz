@@ -59,3 +59,8 @@ form h3 {
   display: inline ;
   margin-right: 10px ;
 }
+
+.correct {
+    margin-top: 10px ;
+    width: 800px ;
+}

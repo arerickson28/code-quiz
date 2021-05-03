@@ -52,12 +52,13 @@ startButton.addEventListener("click", function() {
 //Timer stuff
 function startTimer() {
     let timerEl = document.getElementById("timer") ;
-    let secondsLeft = 30 ;
+    let secondsLeft = 6 ;
 
     let timer = setInterval(function() {
         secondsLeft-- ;
         timerEl.textContent = secondsLeft ;
-
+        
+        
         if (secondsLeft === 0) {
             clearInterval(timer) ;
         }
