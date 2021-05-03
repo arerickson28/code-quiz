@@ -1,0 +1,24 @@
+div {
+    border: solid ;
+    border-color: blue ;
+}
+
+#highscores {
+    height: 50px ;
+    width: 100px ;
+}
+
+#questionBox {
+    height: 500px ;
+    width: 800px ;
+}
+
+#timer {
+    height: 50px ;
+    width: 100px ;
+}
+
+body {
+    display: flex ;
+    justify-content: space-between ;
+}
