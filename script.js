@@ -26,7 +26,7 @@ let quizQuestionObject = {
             }
 }
 
-let userInitals ;
+let userInitials ;
 
 let userScore ;
 
@@ -42,6 +42,20 @@ let userData = {
     "userScore": userScore
 }
 
+//Timer stuff
+function startTimer() {
+    let timerEl = document.getElementById("timer") ;
+    let secondsLeft = 30 ;
 
+    let timer = setInterval(function() {
+        secondsLeft-- ;
+        timerEl.textContent = secondsLeft ;
 
-console.log("hey friend") ;
+        if (secondsLeft === 0) {
+            clearInterval(timer) ;
+        }
+
+    }, 1000) ;
+}
+
+startTimer() ;
