@@ -2,7 +2,7 @@ let quizQuestionArray = [
 
     {"question1": {
         "question": "Hello, this is question one!",
-        "options1": ["options1-1", "options1-2", "options1-3", "options1-4"],
+        "options1": ["Hello, this is option one of question one!", "Hello, this is option two of question one!", "Hello, this is option three of question one!", "Hello, this is option four of question one!"],
          "answer1": "letter1"
         }},
     
@@ -32,6 +32,7 @@ let quizQuestionArray = [
 ]
 
 //Populating question box
+    //Question
 let questionDiv = document.getElementById("questionBox") ;
 
 let nextQuestion = document.createElement("h3") ;
@@ -39,6 +40,18 @@ let nextQuestion = document.createElement("h3") ;
 questionDiv.appendChild(nextQuestion) ;
 
 nextQuestion.textContent = quizQuestionArray[0]["question1"]["question"] ;
+
+    //Options
+let opA = document.getElementById("op1") ;
+let opB = document.getElementById("op2") ;
+let opC = document.getElementById("op3") ;
+let opD = document.getElementById("op4") ;
+
+let elOptions = [opA, opB, opC, opD] ;
+
+for (var i = 0; i < 4; i++) {
+    elOptions[i].textContent = quizQuestionArray[0]["question1"]["options1"][i] ;
+}
 
 
 //At end of quiz...
