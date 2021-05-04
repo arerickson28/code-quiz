@@ -1,19 +1,24 @@
-let userInitials = localStorage.getItem("initials") ;
+let userData = JSON.parse(localStorage.getItem("userData")) ;
 
+for (var i = 0; i < userData.length; i++) {
+    let scoreTable = document.getElementById("highscoreTable") ;
 
-let highDiv = document.getElementById("highscoreTable") ;
+    let newEntry = document.createElement("tr") ;
 
-let newUser = document.createElement("tr") ;
+    newEntry.setAttribute("class", "tableRow")
 
-newUser.setAttribute("class", "tableRow")
+    let newEntryInitial = document.createElement("td") ;
 
-let newUserStat = document.createElement("td") ;
+    let newEntryScore = document.createElement("td") ;
 
-newUserStat.textContent = userInitials ;
+    newEntryInitial.textContent = userData[i]["userInitials"] ;
+    newEntryScore.textContent = userData[i]["userScore"] ;
 
-highDiv.appendChild(newUser) ;
+    scoreTable.appendChild(newEntry) ;
 
-newUser.appendChild(newUserStat) ;
+    newEntry.appendChild(newEntryInitial) ;
+    newEntry.appendChild(newEntryScore) ;
+}
 
 // Clear Button
 let clearButton = document.getElementById("clear") ;

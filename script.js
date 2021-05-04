@@ -62,7 +62,7 @@ let nextQuestion = document.createElement("h3") ;
 
 questionDiv.appendChild(nextQuestion) ;
 
-nextQuestion.textContent = quizQuestionArray[0]["question"] ;
+nextQuestion.textContent = quizQuestionArray[currentQuestion]["question"] ;
 
     //Options
 let opA = document.getElementById("op1") ;
@@ -80,34 +80,43 @@ for (var i = 0; i < 4; i++) {
 
 //At end of quiz...
 let userInitials = "";
-console.log(typeof(userInitials))
-let userScore ;
+let userScore = 0 ;
 
-let userData = {
-    "userInitials" : userInitials,
-    "userScore": userScore
-}
+let userData = []
+    
+    
+    
 
-let isQuizFinished = true ;
+
+localStorage.setItem("userData", JSON.stringify(userData)) ;
+
+// let isQuizFinished = true ;
 
 let submitInitials = document.getElementById("getInitials") ;
 
 submitInitials.addEventListener("click", function() {
     userInitials = document.getElementById("userInitials").value  ;
-    console.log(userInitials) ;
-    localStorage.setItem("initials", userInitials) ;
+    userData = JSON.parse(localStorage.getItem("userData")) ;
+
+    newEntryObj = {
+        "userInitials" : userInitials,
+        "userScore": userScore
+        }
+
+    userData.push(newEntryObj) ;
+
+    localStorage.setItem("userData", JSON.stringify(userData)) ;
+
+    // localStorage.setItem("initials", userInitials) ;
+
     document.getElementById("userInitials").value = "" ;
 }) ;
 
 
-if (isQuizFinished === false) {
-    //TODO: display initial form box
-}
+// if (isQuizFinished === false) {
+//     //TODO: display initial form box
+// }
 
-userData = {
-    "userInitials" : userInitials,
-    "userScore": userScore
-}
 
 //-----------------------------------------------------------------------------
 //Connecting startButton to timer
