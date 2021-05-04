@@ -2,32 +2,52 @@ let quizQuestionArray = [
 
         {
         "question": "Hello, this is question one!",
-        "options": ["Hello, this is option one of question one!", "Hello, this is option two of question one!", "Hello, this is option three of question one!", "Hello, this is option four of question one!"],
-         "answer": "letter1"
+        "answer": "letter1",
+        "options": [
+            "Hello, this is option one of question one!", 
+            "Hello, this is option two of question one!", 
+            "Hello, this is option three of question one!", 
+            "Hello, this is option four of question one!"]
         },
     
         {
         "question": "Hello, this is question two!",
-        "options": ["options2-1", "options2-2", "options2-3", "options2-4"],
-        "answer": "letter2"
+        "answer": "letter2",
+        "options": [
+            "options2-1", 
+            "options2-2", 
+            "options2-3", 
+            "options2-4"]
         },
     
         {
         "question": "Hello, this is question three!",
-        "options": ["options3-1", "options3-2", "options3-3", "options4-4"],
-        "answer": "letter3"
+        "answer": "letter3",
+        "options": [
+            "options3-1",
+            "options3-2", 
+            "options3-3", 
+            "options4-4"]
         },
 
         {
         "question": "Hello, this is question four!",
-        "options": ["options4-1", "options4-2", "options4-3", "options4-4"],
-        "answer": "letter4"
-            },
+        "answer": "letter4",
+        "options": [
+            "options4-1", 
+            "options4-2", 
+            "options4-3", 
+            "options4-4"]
+        },
 
         {
         "question": "Hello, this is question five!",
-        "options": ["options5-1", "options5-2", "options5-3", "options5-4"],
-        "answer": "letter5"
+        "answer": "letter5",
+        "options": [
+            "options5-1", 
+            "options5-2", 
+            "options5-3", 
+            "options5-4"]
         }
 ]
 //-----------------------------------------------------------------------------
