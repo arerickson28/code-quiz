@@ -82,19 +82,30 @@ for (var i = 0; i < 4; i++) {
 let userInitials = "";
 let userScore = 0 ;
 
-let userData = []
-    
-    
-    
 
 
-localStorage.setItem("userData", JSON.stringify(userData)) ;
+// let userData ;
+
+
+
+    if (localStorage.getItem("userData") === null) {
+        let userData = [] ;
+        localStorage.setItem("userData", JSON.stringify(userData)) ;
+
+    }
+
 
 // let isQuizFinished = true ;
 
 let submitInitials = document.getElementById("getInitials") ;
 
 submitInitials.addEventListener("click", function() {
+
+    // if (typeof(userData) === "undefined") {
+    //     userData = [] ;
+    //     localStorage.setItem("userData", JSON.stringify(userData)) ;
+    // }
+
     userInitials = document.getElementById("userInitials").value  ;
     userData = JSON.parse(localStorage.getItem("userData")) ;
 

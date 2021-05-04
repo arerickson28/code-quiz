@@ -28,6 +28,12 @@ clearButton.addEventListener("click", function(){
     highscoreTable.parentNode.removeChild(highscoreTable) ;
     // Maybe use "getElementsByClassName"?
     //https://stackoverflow.com/questions/10842471/how-to-remove-all-elements-of-a-certain-class-from-the-dom
+
+    userData = JSON.parse(localStorage.getItem("userData")) ;
+    userData = [] ;
+    localStorage.setItem("userData", JSON.stringify(userData)) ;
+
+
 })
 
 
