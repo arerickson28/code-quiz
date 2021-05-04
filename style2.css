@@ -1,0 +1,22 @@
+body {
+    display: flex ;
+    flex-direction: column ;
+    align-items: center ;
+}
+
+div {
+    width: 500px;
+    height: 600px;
+    border: solid;
+    border-color: purple;
+    display: flex ;
+    justify-content: flex-start ;
+    margin-top: 50px ;
+    align-items: center ;
+    flex-direction: column ;
+}
+
+table {
+    border: solid ;
+    border-color: orange ;
+}

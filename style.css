@@ -55,7 +55,14 @@ section {
     align-items: center ;
 }
 
-form h3 {
+.form {
+    margin-top: 10px ;
+    padding-bottom: 10px ;
+    padding-right: 10px ;
+    padding-left: 10px ;
+}
+
+.form h3 {
   display: inline ;
   margin-right: 10px ;
 }

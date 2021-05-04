@@ -26,21 +26,46 @@ let quizQuestionObject = {
             }
 }
 
-let userInitials ;
-
+//At end of quiz...
+let userInitials = "";
+console.log(typeof(userInitials))
 let userScore ;
-
-let isQuizFinished = false ;
-
-if (isQuizFinished === true) {
-    userInitials = prompt("Please Enter Initals") ;
-}
-
 
 let userData = {
     "userInitials" : userInitials,
     "userScore": userScore
 }
+
+let isQuizFinished = true ;
+
+let submitInitials = document.getElementById("getInitials") ;
+
+submitInitials.addEventListener("click", function() {
+    userInitials = document.getElementById("userInitials").value  ;
+    console.log(userInitials) ;
+    localStorage.setItem("initials", userInitials) ;
+    document.getElementById("userInitials").value = "" ;
+}) ;
+
+console.log(typeof(userInitials)) ;
+
+
+
+//getInitials function?
+
+if (isQuizFinished === false) {
+    //TODO: display initial form box
+
+
+}
+
+
+userData = {
+    "userInitials" : userInitials,
+    "userScore": userScore
+}
+
+
 //Connecting startButton to timer
 let startButton = document.getElementById("startButton") ;
 
@@ -65,8 +90,6 @@ function startTimer() {
 
     }, 1000) ;
 
-    //Need to disable start button while quiz is running
-    // while (secondsLeft > 0) {
-    //     startButton.disabled = true ;
-    // }
+    //TODO: Need to disable start button while quiz is running
+
 }
