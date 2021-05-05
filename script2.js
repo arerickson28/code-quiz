@@ -24,10 +24,22 @@ for (var i = 0; i < userData.length; i++) {
 let clearButton = document.getElementById("clear") ;
 
 clearButton.addEventListener("click", function(){
-    let highscoreTable = document.getElementById("highscoreTable") ;
-    highscoreTable.parentNode.removeChild(highscoreTable) ;
+    // let highscoreTable = document.getElementById("highscoreTable") ;
+    // highscoreTable.parentNode.removeChild(highscoreTable) ;
     // Maybe use "getElementsByClassName"?
     //https://stackoverflow.com/questions/10842471/how-to-remove-all-elements-of-a-certain-class-from-the-dom
+
+    let tableRows = document.getElementsByClassName("tableRow") ;
+
+    // for (var i = 0; i < tableRows.length; i++) {
+    //     tableRows[i].parentNode.removeChild(tableRows[i]) ;
+    // }
+
+    for (row of tableRows) {
+        row.parentNode.removeChild(row) ;
+    }
+
+    console.log(tableRows) ;
 
     userData = JSON.parse(localStorage.getItem("userData")) ;
     userData = [] ;
