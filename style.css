@@ -99,9 +99,18 @@ section {
 }
 
 #optionBox h4 {
-    padding: 10px ;
+    padding-top: 10px ;
+    padding-bottom: 10px ;
 }
 
 .hide {
     display: none ;
+}
+
+span {
+    /* padding: 10px ; */
+}
+
+.option {
+    padding: 10px ;
 }
