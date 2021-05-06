@@ -1,53 +1,53 @@
 let quizQuestionArray = [
 
         {
-        "question": "Hello, this is question one!",
-        "answer": "letter1",
+        "question": "What does 'scope' refer to when programming?",
+        "answer": "op4",
         "options": [
-            "Hello, this is option one of question one!", 
-            "Hello, this is option two of question one!", 
-            "Hello, this is option three of question one!", 
-            "Hello, this is option four of question one!"]
+            "Methods of fetching data", 
+            "Tools used for debugging errors", 
+            "The purpose of the code", 
+            "Rules about variable availability for use"]
         },
     
         {
-        "question": "Hello, this is question two!",
-        "answer": "letter2",
+        "question":"Which of the following is not a keyword for variable declaration?",
+        "answer": "op1",
         "options": [
-            "options2-1", 
-            "options2-2", 
-            "options2-3", 
-            "options2-4"]
+            "make", 
+            "let", 
+            "var", 
+            "const"]
         },
     
         {
-        "question": "Hello, this is question three!",
-        "answer": "letter3",
+        "question": "Can indicies be used to access items in arrays and objects?",
+        "answer": "op3",
         "options": [
-            "options3-1",
-            "options3-2", 
-            "options3-3", 
-            "options4-4"]
+            "Both arrays and objects have indicies",
+            "Only objects have indicies", 
+            "Only arrays have indicies", 
+            "Neither arrays nor objects have indicies"]
         },
 
         {
-        "question": "Hello, this is question four!",
-        "answer": "letter4",
+        "question": "Which of the following is not a data type?",
+        "answer": "op3",
         "options": [
-            "options4-1", 
-            "options4-2", 
-            "options4-3", 
-            "options4-4"]
+            "string", 
+            "boolean", 
+            "euclid", 
+            "number"]
         },
 
         {
-        "question": "Hello, this is question five!",
-        "answer": "letter5",
+        "question": "Code blocks must always be contained by which of the following?",
+        "answer": "op4",
         "options": [
-            "options5-1", 
-            "options5-2", 
-            "options5-3", 
-            "options5-4"]
+            "(parentheses)", 
+            "<angle brackets>", 
+            "[square brackets]", 
+            "{curly brackets}"]
         }
 ]
 //-----------------------------------------------------------------------------
