@@ -5,49 +5,49 @@ let quizQuestionArray = [
         "answer": "op4",
         "options": [
             "a) Methods of fetching data", 
-            "Tools used for debugging errors", 
-            "The purpose of the code", 
-            "Rules about variable availability for use"]
+            "b) Tools used for debugging errors", 
+            "c) The purpose of the code", 
+            "d) Rules about variable availability for use"]
         },
     
         {
         "question": "Which of the following is not a keyword for variable declaration?",
         "answer": "op1",
         "options": [
-            "make", 
-            "let", 
-            "var", 
-            "const"]
+            "a) make", 
+            "b) let", 
+            "c) var", 
+            "d) const"]
         },
     
         {
         "question": "Can indicies be used to access items in arrays and objects?",
         "answer": "op3",
         "options": [
-            "Both arrays and objects have indicies",
-            "Only objects have indicies", 
-            "Only arrays have indicies", 
-            "Neither arrays nor objects have indicies"]
+            "a) Both arrays and objects have indicies",
+            "b) Only objects have indicies", 
+            "c) Only arrays have indicies", 
+            "d) Neither arrays nor objects have indicies"]
         },
 
         {
         "question": "Which of the following is not a data type?",
         "answer": "op3",
         "options": [
-            "string", 
-            "boolean", 
-            "euclid", 
-            "number"]
+            "a) string", 
+            "b) boolean", 
+            "c) euclid", 
+            "d) number"]
         },
 
         {
         "question": "Code blocks must always be contained by which of the following?",
         "answer": "op4",
         "options": [
-            "(parentheses)", 
-            "<angle brackets>", 
-            "[square brackets]", 
-            "{curly brackets}"]
+            "a) (parentheses)", 
+            "b) <angle brackets>", 
+            "c) [square brackets]", 
+            "d) {curly brackets}"]
         }
 ]
 //-----------------------------------------------------------------------------
@@ -121,7 +121,8 @@ function loadNextQuestion() {
         currentQuestion++ ;
         console.log(currentQuestion) ;
 
-        loadNextQuestion() ;
+        // loadNextQuestion() ;
+        wait() ;
 
     }) ;
 }
@@ -131,6 +132,20 @@ function loadNextQuestion() {
 function wait() {
     // interval 
     // when interval === 0 then loadNextQuestion() 
+    let waitTime = 1
+
+    let wait = setInterval(function() {
+        waitTime-- ;
+        
+        if (waitTime === 0) {
+            clearInterval(wait) ;
+            loadNextQuestion() ;
+        }
+
+    }, 1000) ;
+
+
+
 }
 
 
