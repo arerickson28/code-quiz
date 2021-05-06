@@ -53,7 +53,7 @@ let quizQuestionArray = [
 //-----------------------------------------------------------------------------
 //Populating question box
 let startQuizDiv = document.getElementById("startQuiz") ;
-let currentQuestion = 0 ;
+let currentQuestion = -1 ;
 let correctMsgBox = document.getElementById("correctBox") ;
 let correctOrNot = document.getElementById("correctOrNot") ;
 
@@ -61,7 +61,6 @@ function loadNextQuestion() {
     currentQuestion++ ;
         //Question
     correctOrNot.textContent = "" ;
-    
     
     let quizSection = document.getElementById("quizSection") ;
 
@@ -83,11 +82,13 @@ function loadNextQuestion() {
         elOptions[i].textContent = quizQuestionArray[currentQuestion]["options"][i] ;
     }
 
+    
     //-----------------------------------------------------------------------------
     //Checking to see if correct answer
     
     
 }
+
 let optionDiv = document.getElementById("optionBox")
 
 optionDiv.addEventListener("click", function(event){
