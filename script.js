@@ -54,9 +54,11 @@ let quizQuestionArray = [
 //Populating question box
 let startQuizDiv = document.getElementById("startQuiz") ;
 let currentQuestion = 0 ;
+let correctMsgBox = document.getElementById("correctBox") ;
 let correctOrNot = document.getElementById("correctOrNot") ;
 
 function loadNextQuestion() {
+    currentQuestion++ ;
         //Question
     correctOrNot.textContent = "" ;
     
@@ -83,36 +85,47 @@ function loadNextQuestion() {
 
     //-----------------------------------------------------------------------------
     //Checking to see if correct answer
-    let optionDiv = document.getElementById("optionBox")
-
-    optionDiv.addEventListener("click", function(event){
-        let selected = event.target ;
-        let selectedId = selected.getAttribute("id") ;
-        
     
-        
-        console.log(selected) ;
-
-        if (selectedId ===  quizQuestionArray[currentQuestion]["answer"]) {
-            console.log("correct") ;
-            correctOrNot.textContent = "Correct!" ;
-           
-
-        } else {
-            console.log("incorrect") ;
-            correctOrNot.textContent = "Incorrect." ;
-            //deduct time from timer
-         
-        }
-        console.log(currentQuestion) ;
-        currentQuestion++ ;
-        console.log(currentQuestion) ;
-
-        // loadNextQuestion() ;
-        wait() ;
-
-    }) ;
+    
 }
+let optionDiv = document.getElementById("optionBox")
+
+optionDiv.addEventListener("click", function(event){
+    let selected = event.target ;
+    let selectedId = selected.getAttribute("id") ;
+    
+
+    
+    console.log(selected) ;
+    console.log(quizQuestionArray[currentQuestion]["answer"]) ;
+
+    if (selectedId ===  quizQuestionArray[currentQuestion]["answer"]) {
+        console.log("correct") ;
+        correctOrNot.textContent = "Correct!" ;
+        correctMsgBox.classList.remove("hide") ;
+       
+
+    } else {
+        console.log("incorrect") ;
+        correctOrNot.textContent = "Incorrect." ;
+        correctMsgBox.classList.remove("hide") ;
+        //deduct time from timer
+     
+    }
+    console.log(currentQuestion) ;
+    
+    console.log(currentQuestion) ;
+
+    // loadNextQuestion() ;
+    wait() ;
+
+}) ;
+
+
+
+
+
+
 
 
 
@@ -126,6 +139,7 @@ function wait() {
         
         if (waitTime === 0) {
             clearInterval(wait) ;
+            correctMsgBox.setAttribute("class", "hide")
 
             if (currentQuestion !== quizQuestionArray.length - 1) {
                 loadNextQuestion() ;
