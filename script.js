@@ -83,14 +83,25 @@ let optionDiv = document.getElementById("optionBox")
 optionDiv.addEventListener("click", function(event){
     let selected = event.target ;
     let selectedId = selected.getAttribute("id") ;
+    let correctMsg = document.getElementById("correct") ;
+    let horRul = document.createElement("hr") ;
+    let correct = document.createElement("h3") ;
+    let incorrect = document.createElement("h3") ;
+    correct.textContent = "Correct!"
+    incorrect.textContent = "Incorrect."
     
     if (selectedId ===  quizQuestionArray[currentQuestion]["answer"]) {
         console.log("correct") ;
-        //display correct sign
+        //display correct sign.....for 1 second?
+        correctMsg.appendChild(horRul) ;
+        correctMsg.appendChild(correct) ;
     } else {
         console.log("incorrect") ;
-        //display incorrect sign
+        //display incorrect sign...for 1 second?
         //deduct time from timer
+        correctMsg.appendChild(horRul) ;
+        correctMsg.appendChild(incorrect) ;
+
     }
 
     loadNextQuestion() ;
@@ -99,7 +110,9 @@ optionDiv.addEventListener("click", function(event){
 
 
 
-
+function loadNextQuestion() {
+    //hide correct/incorrect message
+}
 
 
 
