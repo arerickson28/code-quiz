@@ -54,24 +54,19 @@ let quizQuestionArray = [
 //Populating question box
 let startQuizDiv = document.getElementById("startQuiz") ;
 let currentQuestion = 0 ;
-let correctMsg = document.getElementById("correct") ;
+let correctOrNot = document.getElementById("correctOrNot") ;
 
 function loadNextQuestion() {
         //Question
-    correctMsg.innerHTML = ""
+    correctOrNot.textContent = "" ;
     
     
     let quizSection = document.getElementById("quizSection") ;
 
     quizSection.classList.remove("hide") ;
     
-    // let questionDiv = document.getElementById("questionBox") ;
-
     let nextQuestion = document.getElementById("question") ;
-    //^hard code this then just rewrite
-
-    // questionDiv.appendChild(nextQuestion) ;
-
+  
     nextQuestion.textContent = quizQuestionArray [currentQuestion]["question"] ;
 
         //Options
@@ -94,28 +89,20 @@ function loadNextQuestion() {
         let selected = event.target ;
         let selectedId = selected.getAttribute("id") ;
         
-        let horRul = document.createElement("hr") ;
-        let correct = document.createElement("h3") ;
-        let incorrect = document.createElement("h3") ;
-        correct.textContent = "Correct!"
-        incorrect.textContent = "Incorrect."
+    
         
         console.log(selected) ;
 
         if (selectedId ===  quizQuestionArray[currentQuestion]["answer"]) {
             console.log("correct") ;
-            //display correct sign.....for 1 second?
-            correctMsg.appendChild(horRul) ;
-            correctMsg.appendChild(correct) ;
-            //function wait()
+            correctOrNot.textContent = "Correct!" ;
+           
 
         } else {
             console.log("incorrect") ;
-            //display incorrect sign...for 1 second?
+            correctOrNot.textContent = "Incorrect." ;
             //deduct time from timer
-            correctMsg.appendChild(horRul) ;
-            correctMsg.appendChild(incorrect) ;
-
+         
         }
         console.log(currentQuestion) ;
         currentQuestion++ ;
@@ -139,7 +126,13 @@ function wait() {
         
         if (waitTime === 0) {
             clearInterval(wait) ;
-            loadNextQuestion() ;
+
+            if (currentQuestion !== quizQuestionArray.length - 1) {
+                loadNextQuestion() ;
+            }  else {
+                //stop quiz and timer and get score
+            }
+            
         }
 
     }, 1000) ;

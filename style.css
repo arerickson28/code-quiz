@@ -86,7 +86,7 @@ section {
   margin-right: 10px ;
 }
 
-#correct {
+#correctBox {
     margin-top: 10px ;
     width: 800px ;
 }
@@ -113,4 +113,11 @@ span {
 
 .option {
     padding: 10px ;
+}
+
+.timer {
+    display: flex ;
+    flex-direction: column ;
+    align-items: center ;
+    justify-content: flex-start
 }
