@@ -77,6 +77,29 @@ for (var i = 0; i < 4; i++) {
 }
 
 //-----------------------------------------------------------------------------
+//Checking to see if correct answer
+let optionDiv = document.getElementById("optionBox")
+
+optionDiv.addEventListener("click", function(event){
+    let selected = event.target ;
+    let selectedId = selected.getAttribute("id") ;
+    
+    if (selectedId ===  quizQuestionArray[currentQuestion]["answer"]) {
+        console.log("correct") ;
+    } else {
+        console.log("incorrect") ;
+    }
+
+
+}) ;
+
+
+
+
+
+
+
+
 
 //At end of quiz...
 let userInitials = "";
