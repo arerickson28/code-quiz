@@ -86,10 +86,14 @@ optionDiv.addEventListener("click", function(event){
     
     if (selectedId ===  quizQuestionArray[currentQuestion]["answer"]) {
         console.log("correct") ;
+        //display correct sign
     } else {
         console.log("incorrect") ;
+        //display incorrect sign
+        //deduct time from timer
     }
 
+    loadNextQuestion() ;
 
 }) ;
 
