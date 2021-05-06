@@ -101,3 +101,7 @@ section {
 #optionBox h4 {
     padding: 10px ;
 }
+
+.hide {
+    display: none ;
+}

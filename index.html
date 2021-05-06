@@ -14,7 +14,7 @@
             <a href="highscores.html"><h2>View Highscores</h2></a>
         </div>
 
-        <div class="startQuiz">
+        <div class="startQuiz" id="startQuiz">
             <h1>Welcome to the code quiz!</h1>
             <p>Here are the rules!</p>
             <button type="button" id="startButton"><h2>Start Quiz</h2></button>
@@ -28,11 +28,13 @@
 
     </nav>
     
-    <section>
+    <section id="quizSection" class="hide">
 
         <div id="quizBox">
             <h2>Question <span id="questionNumber"></span> of 5</h2>
-            <div id="questionBox"></div>
+            <div id="questionBox">
+                <h3 id="question"></h3>
+            </div>
             <div id="optionBox">
                 <h4>a) <span class="option" id="op1"></span></h4>
                 <h4>b) <span class="option" id="op2"></span></h4>

@@ -4,14 +4,14 @@ let quizQuestionArray = [
         "question": "What does 'scope' refer to when programming?",
         "answer": "op4",
         "options": [
-            "Methods of fetching data", 
+            "a) Methods of fetching data", 
             "Tools used for debugging errors", 
             "The purpose of the code", 
             "Rules about variable availability for use"]
         },
     
         {
-        "question":"Which of the following is not a keyword for variable declaration?",
+        "question": "Which of the following is not a keyword for variable declaration?",
         "answer": "op1",
         "options": [
             "make", 
@@ -52,67 +52,88 @@ let quizQuestionArray = [
 ]
 //-----------------------------------------------------------------------------
 //Populating question box
-
+let startQuizDiv = document.getElementById("startQuiz") ;
 let currentQuestion = 0 ;
-
-    //Question
-let questionDiv = document.getElementById("questionBox") ;
-
-let nextQuestion = document.createElement("h3") ;
-
-questionDiv.appendChild(nextQuestion) ;
-
-nextQuestion.textContent = quizQuestionArray[currentQuestion]["question"] ;
-
-    //Options
-let opA = document.getElementById("op1") ;
-let opB = document.getElementById("op2") ;
-let opC = document.getElementById("op3") ;
-let opD = document.getElementById("op4") ;
-
-let elOptions = [opA, opB, opC, opD] ;
-
-for (var i = 0; i < 4; i++) {
-    elOptions[i].textContent = quizQuestionArray[currentQuestion]["options"][i] ;
-}
-
-//-----------------------------------------------------------------------------
-//Checking to see if correct answer
-let optionDiv = document.getElementById("optionBox")
-
-optionDiv.addEventListener("click", function(event){
-    let selected = event.target ;
-    let selectedId = selected.getAttribute("id") ;
-    let correctMsg = document.getElementById("correct") ;
-    let horRul = document.createElement("hr") ;
-    let correct = document.createElement("h3") ;
-    let incorrect = document.createElement("h3") ;
-    correct.textContent = "Correct!"
-    incorrect.textContent = "Incorrect."
-    
-    if (selectedId ===  quizQuestionArray[currentQuestion]["answer"]) {
-        console.log("correct") ;
-        //display correct sign.....for 1 second?
-        correctMsg.appendChild(horRul) ;
-        correctMsg.appendChild(correct) ;
-    } else {
-        console.log("incorrect") ;
-        //display incorrect sign...for 1 second?
-        //deduct time from timer
-        correctMsg.appendChild(horRul) ;
-        correctMsg.appendChild(incorrect) ;
-
-    }
-
-    loadNextQuestion() ;
-
-}) ;
-
-
+let correctMsg = document.getElementById("correct") ;
 
 function loadNextQuestion() {
-    //hide correct/incorrect message
+        //Question
+    correctMsg.innerHTML = ""
+    
+    
+    let quizSection = document.getElementById("quizSection") ;
+
+    quizSection.classList.remove("hide") ;
+    
+    // let questionDiv = document.getElementById("questionBox") ;
+
+    let nextQuestion = document.getElementById("question") ;
+    //^hard code this then just rewrite
+
+    // questionDiv.appendChild(nextQuestion) ;
+
+    nextQuestion.textContent = quizQuestionArray [currentQuestion]["question"] ;
+
+        //Options
+    let opA = document.getElementById("op1") ;
+    let opB = document.getElementById("op2") ;
+    let opC = document.getElementById("op3") ;
+    let opD = document.getElementById("op4") ;
+
+    let elOptions = [opA, opB, opC, opD] ;
+
+    for (var i = 0; i < 4; i++) {
+        elOptions[i].textContent = quizQuestionArray[currentQuestion]["options"][i] ;
+    }
+
+    //-----------------------------------------------------------------------------
+    //Checking to see if correct answer
+    let optionDiv = document.getElementById("optionBox")
+
+    optionDiv.addEventListener("click", function(event){
+        let selected = event.target ;
+        let selectedId = selected.getAttribute("id") ;
+        
+        let horRul = document.createElement("hr") ;
+        let correct = document.createElement("h3") ;
+        let incorrect = document.createElement("h3") ;
+        correct.textContent = "Correct!"
+        incorrect.textContent = "Incorrect."
+        
+        console.log(selected) ;
+
+        if (selectedId ===  quizQuestionArray[currentQuestion]["answer"]) {
+            console.log("correct") ;
+            //display correct sign.....for 1 second?
+            correctMsg.appendChild(horRul) ;
+            correctMsg.appendChild(correct) ;
+            //function wait()
+
+        } else {
+            console.log("incorrect") ;
+            //display incorrect sign...for 1 second?
+            //deduct time from timer
+            correctMsg.appendChild(horRul) ;
+            correctMsg.appendChild(incorrect) ;
+
+        }
+        console.log(currentQuestion) ;
+        currentQuestion++ ;
+        console.log(currentQuestion) ;
+
+        loadNextQuestion() ;
+
+    }) ;
 }
+
+
+
+function wait() {
+    // interval 
+    // when interval === 0 then loadNextQuestion() 
+}
+
+
 
 
 
@@ -181,7 +202,7 @@ startButton.addEventListener("click", function() {
 //Timer stuff
 function startTimer() {
     let timerEl = document.getElementById("timer") ;
-    let secondsLeft = 6 ;
+    let secondsLeft = 21 ;
 
     let timer = setInterval(function() {
         secondsLeft-- ;
@@ -194,6 +215,9 @@ function startTimer() {
 
     }, 1000) ;
 
+    startQuizDiv.setAttribute('class', 'hide')
+    loadNextQuestion() ;
     //TODO: Need to disable start button while quiz is running
+    //display none for start button
 
 }
