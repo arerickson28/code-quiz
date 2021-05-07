@@ -44,10 +44,10 @@ let quizQuestionArray = [
         "question": "Code blocks must always be contained by which of the following?",
         "answer": "op4",
         "options": [
-            "a) (parentheses)", 
-            "b) <angle brackets>", 
-            "c) [square brackets]", 
-            "d) {curly brackets}"]
+            "a) ( parentheses )", 
+            "b) < angle brackets >", 
+            "c) [ square brackets ]", 
+            "d) { curly brackets }"]
         }
 ]
 //-----------------------------------------------------------------------------
@@ -72,7 +72,7 @@ function loadNextQuestion() {
 
     nextQuestion.textContent = quizQuestionArray [currentQuestion]["question"] ;
 
-        //Options
+    //Options
     let opA = document.getElementById("op1") ;
     let opB = document.getElementById("op2") ;
     let opC = document.getElementById("op3") ;
@@ -84,15 +84,15 @@ function loadNextQuestion() {
         elOptions[i].textContent = quizQuestionArray[currentQuestion]["options"][i] ;
     }
 
-    
     //-----------------------------------------------------------------------------
     //Checking to see if correct answer
     //TODO: Fix issue with incorrect answer when clicking anywhere in the option div
-    
+    // Idea, turn current event listerner anonymous function into own function then create an event listener for each option and then use the new function
 }
 
 let optionDiv = document.getElementById("optionBox")
 let lastQuestionIsAnswered = false ;
+
 optionDiv.addEventListener("click", function(event){
     let selected = event.target ;
     let selectedId = selected.getAttribute("id") ;
@@ -105,7 +105,7 @@ optionDiv.addEventListener("click", function(event){
         correctOrNot.textContent = "Correct!" ;
         correctMsgBox.classList.remove("hide") ;
        
-    } else {
+    } else if (selectedId !==  quizQuestionArray[currentQuestion]["answer"]) {
         console.log("incorrect") ;
         correctOrNot.textContent = "Incorrect." ;
         correctMsgBox.classList.remove("hide") ;
@@ -113,6 +113,7 @@ optionDiv.addEventListener("click", function(event){
         secondsLeft -= 5 ;
      
     }
+
     console.log(currentQuestion) ;
 
     if (currentQuestion === quizQuestionArray.length - 1) {
@@ -125,8 +126,7 @@ optionDiv.addEventListener("click", function(event){
 
 
 function wait() {
-    // interval 
-    // when interval === 0 then loadNextQuestion() 
+
     let waitTime = 1
 
     let wait = setInterval(function() {
@@ -161,6 +161,12 @@ let submitInitials = document.getElementById("getInitials") ;
 submitInitials.addEventListener("click", function() {
 
     userInitials = document.getElementById("userInitials").value  ;
+
+    //In the event the submit button is pressed without the user having entered initials
+    if (userInitials === "") {
+        return
+    }
+
     userData = JSON.parse(localStorage.getItem("userData")) ;
 
     newEntryObj = {
@@ -172,15 +178,8 @@ submitInitials.addEventListener("click", function() {
 
     localStorage.setItem("userData", JSON.stringify(userData)) ;
 
-    // localStorage.setItem("initials", userInitials) ;
-
     document.getElementById("userInitials").value = "" ;
 }) ;
-
-
-// if (isQuizFinished === false) {
-//     //TODO: display initial form box
-// }
 
 
 //-----------------------------------------------------------------------------
@@ -193,16 +192,14 @@ startButton.addEventListener("click", function() {
 
 //-----------------------------------------------------------------------------
 //Timer stuff
-let secondsLeft = 21 ;
+let secondsLeft = 61 ;
 let finalScore = document.getElementById("finalScore") ;
 function startTimer() {
     let timerEl = document.getElementById("timer") ;
     
-
     let timer = setInterval(function() {
         secondsLeft-- ;
         timerEl.textContent = secondsLeft ;
-        
         
         if (secondsLeft === 0 || lastQuestionIsAnswered) {
             clearInterval(timer) ;
@@ -214,6 +211,5 @@ function startTimer() {
 
     startQuizDiv.setAttribute('class', 'hide')
     loadNextQuestion() ;
-    //TODO get seconds left for when quiz if finished or when timer has run out
 
 }
