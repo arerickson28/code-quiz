@@ -83,15 +83,10 @@ function loadNextQuestion() {
     for (var i = 0; i < 4; i++) {
         elOptions[i].textContent = quizQuestionArray[currentQuestion]["options"][i] ;
     }
-
-    //-----------------------------------------------------------------------------
-    //Checking to see if correct answer
-    //TODO: Fix issue with incorrect answer when clicking anywhere in the option div
-    // Idea, turn current event listerner anonymous function into own function then create an event listener for each option and then use the new function
 }
-
-let optionDiv = document.getElementById("optionBox")
+//-----------------------------------------------------------------------------
 let lastQuestionIsAnswered = false ;
+let optionDiv = document.getElementById("optionBox") ;
 
 optionDiv.addEventListener("click", function(event){
     let selected = event.target ;
@@ -105,6 +100,10 @@ optionDiv.addEventListener("click", function(event){
         correctOrNot.textContent = "Correct!" ;
         correctMsgBox.classList.remove("hide") ;
        
+    } else if (selectedId === "optionBox") {
+
+        return
+
     } else if (selectedId !==  quizQuestionArray[currentQuestion]["answer"]) {
         console.log("incorrect") ;
         correctOrNot.textContent = "Incorrect." ;
@@ -112,7 +111,7 @@ optionDiv.addEventListener("click", function(event){
         //deduct time from timer
         secondsLeft -= 5 ;
      
-    }
+    } 
 
     console.log(currentQuestion) ;
 
@@ -123,7 +122,7 @@ optionDiv.addEventListener("click", function(event){
     wait() ;
 
 }) ;
-
+//-----------------------------------------------------------------------------
 
 function wait() {
 
