@@ -60,11 +60,9 @@ let quizSection = document.getElementById("quizSection") ;
 
 function loadNextQuestion() {
     currentQuestion++ ;
-        //Question
+
     correctOrNot.textContent = "" ;
     
-    
-
     quizSection.classList.remove("hide") ;
     
     let nextQuestion = document.getElementById("question") ;
@@ -94,12 +92,10 @@ function loadNextQuestion() {
 }
 
 let optionDiv = document.getElementById("optionBox")
-
+let lastQuestionIsAnswered = false ;
 optionDiv.addEventListener("click", function(event){
     let selected = event.target ;
     let selectedId = selected.getAttribute("id") ;
-    
-
     
     console.log(selected) ;
     console.log(quizQuestionArray[currentQuestion]["answer"]) ;
@@ -109,7 +105,6 @@ optionDiv.addEventListener("click", function(event){
         correctOrNot.textContent = "Correct!" ;
         correctMsgBox.classList.remove("hide") ;
        
-
     } else {
         console.log("incorrect") ;
         correctOrNot.textContent = "Incorrect." ;
@@ -119,7 +114,10 @@ optionDiv.addEventListener("click", function(event){
     }
     console.log(currentQuestion) ;
 
-    // loadNextQuestion() ;
+    if (currentQuestion === quizQuestionArray.length - 1) {
+        lastQuestionIsAnswered = true ;
+    }
+
     wait() ;
 
 }) ;
@@ -143,7 +141,6 @@ function wait() {
                 quizSection.setAttribute("class", "hide") ;
                 let formDiv = document.getElementsByClassName("form") ;
                 formDiv[0].classList.remove("hide") ;
-                //stop quiz and timer and get score
             }
             
         }
@@ -163,16 +160,10 @@ let userScore = 0 ;
         localStorage.setItem("userData", JSON.stringify(userData)) ;
 
     }
-// let isQuizFinished = true ;
 
 let submitInitials = document.getElementById("getInitials") ;
 
 submitInitials.addEventListener("click", function() {
-
-    // if (typeof(userData) === "undefined") {
-    //     userData = [] ;
-    //     localStorage.setItem("userData", JSON.stringify(userData)) ;
-    // }
 
     userInitials = document.getElementById("userInitials").value  ;
     userData = JSON.parse(localStorage.getItem("userData")) ;
@@ -207,24 +198,27 @@ startButton.addEventListener("click", function() {
 
 //-----------------------------------------------------------------------------
 //Timer stuff
+let secondsLeft = 21 ;
+let finalScore = document.getElementById("finalScore") ;
 function startTimer() {
     let timerEl = document.getElementById("timer") ;
-    let secondsLeft = 21 ;
+    
 
     let timer = setInterval(function() {
         secondsLeft-- ;
         timerEl.textContent = secondsLeft ;
         
         
-        if (secondsLeft === 0) {
+        if (secondsLeft === 0 || lastQuestionIsAnswered) {
             clearInterval(timer) ;
+            finalScore.textContent = secondsLeft ;
+
         }
 
     }, 1000) ;
 
     startQuizDiv.setAttribute('class', 'hide')
     loadNextQuestion() ;
-    //TODO: Need to disable start button while quiz is running
-    //display none for start button
+    //TODO get seconds left for when quiz if finished or when timer has run out
 
 }
