@@ -110,6 +110,7 @@ optionDiv.addEventListener("click", function(event){
         correctOrNot.textContent = "Incorrect." ;
         correctMsgBox.classList.remove("hide") ;
         //deduct time from timer
+        secondsLeft -= 5 ;
      
     }
     console.log(currentQuestion) ;
