@@ -142,13 +142,8 @@ function wait() {
                 let formDiv = document.getElementsByClassName("form") ;
                 formDiv[0].classList.remove("hide") ;
             }
-            
         }
-
     }, 1000) ;
-
-
-
 }
 
 //At end of quiz...
@@ -158,7 +153,6 @@ let userScore = 0 ;
     if (localStorage.getItem("userData") === null) {
         let userData = [] ;
         localStorage.setItem("userData", JSON.stringify(userData)) ;
-
     }
 
 let submitInitials = document.getElementById("getInitials") ;
@@ -212,7 +206,7 @@ function startTimer() {
         if (secondsLeft === 0 || lastQuestionIsAnswered) {
             clearInterval(timer) ;
             finalScore.textContent = secondsLeft ;
-
+            userScore = secondsLeft ;
         }
 
     }, 1000) ;
