@@ -68,7 +68,10 @@ function loadNextQuestion() {
     quizSection.classList.remove("hide") ;
     
     let nextQuestion = document.getElementById("question") ;
-  
+
+    let questionNumber = document.getElementById("questionNumber") ;
+    questionNumber.textContent = currentQuestion + 1
+
     nextQuestion.textContent = quizQuestionArray [currentQuestion]["question"] ;
 
         //Options
