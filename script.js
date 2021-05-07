@@ -56,13 +56,14 @@ let startQuizDiv = document.getElementById("startQuiz") ;
 let currentQuestion = -1 ;
 let correctMsgBox = document.getElementById("correctBox") ;
 let correctOrNot = document.getElementById("correctOrNot") ;
+let quizSection = document.getElementById("quizSection") ;
 
 function loadNextQuestion() {
     currentQuestion++ ;
         //Question
     correctOrNot.textContent = "" ;
     
-    let quizSection = document.getElementById("quizSection") ;
+    
 
     quizSection.classList.remove("hide") ;
     
@@ -85,7 +86,7 @@ function loadNextQuestion() {
     
     //-----------------------------------------------------------------------------
     //Checking to see if correct answer
-    
+    //TODO: Fix issue with incorrect answer when clicking anywhere in the option div
     
 }
 
@@ -114,20 +115,11 @@ optionDiv.addEventListener("click", function(event){
      
     }
     console.log(currentQuestion) ;
-    
-    console.log(currentQuestion) ;
 
     // loadNextQuestion() ;
     wait() ;
 
 }) ;
-
-
-
-
-
-
-
 
 
 function wait() {
@@ -145,6 +137,9 @@ function wait() {
             if (currentQuestion !== quizQuestionArray.length - 1) {
                 loadNextQuestion() ;
             }  else {
+                quizSection.setAttribute("class", "hide") ;
+                let formDiv = document.getElementsByClassName("form") ;
+                formDiv[0].classList.remove("hide") ;
                 //stop quiz and timer and get score
             }
             
@@ -156,29 +151,15 @@ function wait() {
 
 }
 
-
-
-
-
-
-
 //At end of quiz...
 let userInitials = "";
 let userScore = 0 ;
-
-
-
-// let userData ;
-
-
-
+//get user data
     if (localStorage.getItem("userData") === null) {
         let userData = [] ;
         localStorage.setItem("userData", JSON.stringify(userData)) ;
 
     }
-
-
 // let isQuizFinished = true ;
 
 let submitInitials = document.getElementById("getInitials") ;
