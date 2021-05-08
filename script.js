@@ -123,7 +123,7 @@ optionDiv.addEventListener("click", function(event){
 
 }) ;
 //-----------------------------------------------------------------------------
-
+let formDiv = document.getElementsByClassName("form") ;
 function wait() {
 
     let waitTime = 1
@@ -139,7 +139,6 @@ function wait() {
                 loadNextQuestion() ;
             }  else {
                 quizSection.setAttribute("class", "hide") ;
-                let formDiv = document.getElementsByClassName("form") ;
                 formDiv[0].classList.remove("hide") ;
             }
         }
@@ -178,6 +177,8 @@ submitInitials.addEventListener("click", function() {
     localStorage.setItem("userData", JSON.stringify(userData)) ;
 
     document.getElementById("userInitials").value = "" ;
+    // formDiv[0].setAttribute("class", "hide") ;
+    // startQuizDiv.classList.remove("hide") ;
 }) ;
 
 

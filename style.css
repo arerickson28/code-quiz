@@ -1,14 +1,13 @@
 h4 {
     margin-left: 15px ;
     border: solid ;
-    border-color: navy ;
+    border-color: purple ;
 }
 
-div {
+/* div {
     border: solid ;
-    border-color: rgb(192, 5, 5) ;
     border-width: 3px ;
-}
+} */
 
 #highscores {
     height: 50px ;
@@ -16,30 +15,34 @@ div {
     display: flex ;
     justify-content: center ;
     align-items: center ;
+    border: solid ;
+    border-width: 3px ;
+    border-color: purple ;
 }
 
 .startQuiz {
     display: flex ;
     justify-content: center ;
-    /* height: 75px ; */
-    /* width: 200px ; */
     align-items: center ;
     flex-direction: column ;
     padding: 15px ;
+    border: solid ;
+    border-width: 3px ;
+    border-color: orange ;
 }
 
 
 #timer {
     height: 50px ;
     width: 200px ;
-    display: flex ;
-    justify-content: center ;
-    align-items: center ;
 }
+
 
 nav {
     display: flex ;
     justify-content: space-between ;
+    align-items: flex-start ;
+    height: 180px ;
 }
 
 section {
@@ -52,8 +55,11 @@ section {
     width: 800px ;
     display: flex ;
     align-items: center ;
-    margin-top: 50px ;
+    /* margin-top: 50px ; */
+    border: solid ;
+    border-width: 3px ;
     flex-direction: column ;
+    border-color: purple ;
 }
 
 #questionBox {
@@ -62,6 +68,9 @@ section {
     display: flex ;
     justify-content: center ;
     align-items: center ;
+    border: solid ;
+    border-width: 3px ;
+    border-color: orange ;
 }
 
 #optionBox {
@@ -71,6 +80,9 @@ section {
     display: flex ;
     flex-direction: column ;
     align-items: flex-start ;
+    border: solid ;
+    border-width: 3px ;
+    border-color: orange ;
 
 }
 
@@ -79,6 +91,9 @@ section {
     padding-bottom: 10px ;
     padding-right: 10px ;
     padding-left: 10px ;
+    border: solid ;
+    border-width: 3px ;
+    border-color: orange ;
 }
 
 .form h3 {
@@ -95,7 +110,7 @@ section {
 
 #optionBox h4:hover {
     box-shadow: inset 0px 0px 8px 
-    navy, 0 0 15px navy ;
+    purple, 0 0 15px purple ;
 }
 
 #optionBox h4 {
@@ -113,8 +128,26 @@ section {
 }
 
 .timer {
-    display: flex ;
-    flex-direction: column ;
-    align-items: center ;
-    justify-content: flex-start
+    display: inline-block;
+    border: solid ;
+    border-width: 3px ;
+    border-color: purple ;
+    
+}
+
+.timer h2 {
+    margin: 10px ;
+}
+
+.startQuiz p {
+    text-align: center ;
+}
+
+.startQuiz h1 {
+    margin-bottom: 0px ;
+}
+
+hr {
+    height: 3px ;
+    background-color: orange ;
 }
