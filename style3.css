@@ -52,7 +52,7 @@ section {
 
 #quizBox {
     /* height: 500px ; */
-    width: 800px ;
+    /* width: 800px ; */
     display: flex ;
     align-items: center ;
     /* margin-top: 50px ; */
@@ -60,35 +60,35 @@ section {
     border-width: 3px ;
     flex-direction: column ;
     border-color: purple ;
-    /* padding-left: 50px ;
-    padding-right: 50px ; */
+    padding-left: 50px ;
+    padding-right: 50px ;
 }
 
 #questionBox {
     /* height: 100px ; */
-    width: 650px ;
+    /* width: 650px ; */
     display: flex ;
     justify-content: center ;
     align-items: center ;
     border: solid ;
     border-width: 3px ;
     border-color: orange ;
-    /* padding-left: 50px ;
-    padding-right: 50px ; */
+    padding-left: 50px ;
+    padding-right: 50px ;
 }
 
 #optionBox {
-    
     margin-top: 35px ;
     margin-bottom: 35px ;
-    width: 700px ;
+    /* width: 700px ; */
+    width: 100% ;
     display: flex ;
     flex-direction: column ;
     align-items: flex-start ;
     border: solid ;
     border-width: 3px ;
     border-color: orange ;
-    padding-right: 25px ;
+    /* padding-right: 25px ; */
 
 }
 
