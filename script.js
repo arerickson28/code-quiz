@@ -85,6 +85,7 @@ function loadNextQuestion() {
     }
 }
 //-----------------------------------------------------------------------------
+//Checking to see if user answer is correct
 let lastQuestionIsAnswered = false ;
 let optionDiv = document.getElementById("optionBox") ;
 
@@ -123,6 +124,7 @@ optionDiv.addEventListener("click", function(event){
 
 }) ;
 //-----------------------------------------------------------------------------
+//Wait to display next question
 let formDiv = document.getElementsByClassName("form") ;
 function wait() {
 
@@ -144,7 +146,7 @@ function wait() {
         }
     }, 1000) ;
 }
-
+//-----------------------------------------------------------------------------
 //At end of quiz...
 let userInitials = "";
 let userScore = 0 ;
@@ -174,13 +176,13 @@ submitInitials.addEventListener("click", function() {
 
     userData.push(newEntryObj) ;
 
+    console.log(userData) ;
+
     localStorage.setItem("userData", JSON.stringify(userData)) ;
 
     document.getElementById("userInitials").value = "" ;
-    // formDiv[0].setAttribute("class", "hide") ;
-    // startQuizDiv.classList.remove("hide") ;
+    formDiv[0].setAttribute("class", "hide") ;
 }) ;
-
 
 //-----------------------------------------------------------------------------
 //Connecting startButton to timer
