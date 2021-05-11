@@ -7,3 +7,7 @@ Web Dev Assignment: Web APIs
 
 * Instructions for the assignment can be found in the instructions folder
 * Code submission can be found in the develop folder
+
+----
+*image of code-quiz*
+![Code-Quiz](code-quiz.png)
